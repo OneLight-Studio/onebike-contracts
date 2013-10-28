@@ -14,7 +14,7 @@ import org.json.simple.JSONValue;
 
 public class ContractsGenerator {
 	
-	private static final String CONTRACTS_PROVIDER_JCD = "JCDescaux";
+	private static final String CONTRACTS_PROVIDER_JCD = "JCDecaux";
 	private static final String CONTRACTS_PROVIDER_CITYBIKES = "CityBikes";
 	private static final String JCD_API_KEY = "e774968643aee3788d9b83be4651ba671aba7611";
 	private static final String JCD_CONTRACTS_URL = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + JCD_API_KEY;
