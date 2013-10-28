@@ -16,11 +16,12 @@ public class ContractsGenerator {
 	
 	private static final String CONTRACTS_PROVIDER_JCD = "JCDecaux";
 	private static final String CONTRACTS_PROVIDER_CITYBIKES = "CityBikes";
-	private static final String JCD_API_KEY = "e774968643aee3788d9b83be4651ba671aba7611";
+	private static final String JCD_API_KEY = "A Key...";
 	private static final String JCD_CONTRACTS_URL = "https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + JCD_API_KEY;
 	private static final String JCD_CONTRACT_URL = "https://api.jcdecaux.com/vls/v1/stations?apiKey=" + JCD_API_KEY + "&contract=";
     private static final String CITYBIKES_URL = "http://api.citybik.es/networks.json";
     private static final String GOOGLE_URL = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false";
+    private static final int ACCEPTED_LIMIT_FROM_CONTRACT_CENTER = 20000;
     private static JSONArray outContracts;
 
     public static void main(String[] args) {
@@ -189,7 +190,7 @@ public class ContractsGenerator {
                 }
                 
                 double distanceFromCity = getDistance(cityLat, cityLng, stationLat, stationLng);
-                if (distanceFromCity > 20000) {
+                if (distanceFromCity > ACCEPTED_LIMIT_FROM_CONTRACT_CENTER) {
                 	String stationName = (String) station.get("name");
                 	System.err.println("Station " + stationName + " seems way too far (" + (int)distanceFromCity + " meters)");
                 	continue;
